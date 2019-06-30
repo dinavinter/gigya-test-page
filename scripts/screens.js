@@ -24,9 +24,10 @@ gigya.comments.showCommentsUI(params);
 function afterLiteRegistration(eventObj) {
     if (eventObj.response.errorCode == 0) {
         var email = eventObj.profile.email;
+        var  inviteRef= "https://accounts."+domain+".gigya.com/accounts.sendLiteInvite?apiKey="+apiKey+"&email=" + encodeURIComponent(email);
 
          document.getElementById('div').innerHTML = "<br/><br/><br/>"+
-         `<center> <a onclick="invite('${email}')" href="javascript:void(0);">Edit your preferences</a>  </center>`+
+         `<center> <a href="${inviteRef}" target="_blank">Edit your preferences</a>  </center>`+
 
         '<center> <a onclick="showRegistration()" href="javascript:void(0);">Complete your account</a>  </center>';
      
@@ -38,7 +39,6 @@ function afterLiteRegistration(eventObj) {
 } 
 
 function invite(email ){
-    var  inviteRef= "https://accounts."+domain+".gigya.com/accounts.sendLiteInvite?apiKey="+apiKey+"&email=" + encodeURIComponent(email);
 
     fetch(inviteRef), {
         method: 'GET',
