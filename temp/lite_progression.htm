@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <title></title>
+
+
+    <script type="text/javascript" src="https://cdns.us1-st1.gigya.com/js/gigya.js?apiKey=3_PpWKWQ-veYJICuy-WKR7IZitf-uYMezxEuKWMMRVaehrPa5CqUhkkjYtAk2vO5De">
+
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        var email;
+
+        function afterLite(eventObj) {
+            email = eventObj.profile.email;
+            showRegistration();
+        }
+
+          function afterRegister(eventObj) {
+            email = eventObj.profile.email;
+            document.getElementById("full").hidden=false;
+        }
+        function registrationLoad(eventObj) {
+          eventObj.profile.email = email;
+        }
+        function showLiteRegistration() {
+            var params = {
+                screenSet: "Default-LiteRegistration",
+                containerID: "div",
+                onAfterSubmit: afterLite
+            }
+            gigya.accounts.showScreenSet(params);
+        }
+        function showRegistration() {
+            var params = {
+                screenSet: "Default-RegistrationLogin",
+                containerID: "div",
+                onBeforeScreenLoad:registrationLoad,
+                startScreen: "gigya-register-screen", 
+                onAfterSubmit: afterRegister
+
+            }
+            gigya.accounts.showScreenSet(params);
+        } 
+        
+        function showProfile() {
+            var params = {
+                screenSet: "Default-ProfileUpdate",
+                containerID: "div", 
+                startScreen: "gigya-update-profile-screen" 
+            }
+            gigya.accounts.showScreenSet(params);
+        }
+
+ function showPrivacy()
+    {
+      var params={
+    screenSet: "Default-ProfileUpdate", 
+    containerID:"div",
+	startScreen:"gigya-privacy-screen"
+                 }
+        gigya.accounts.showScreenSet(params);
+    }
+	
+	 function showCommunication()
+    {
+      var params={
+    screenSet: "Default-ProfileUpdate", 
+    containerID:"div",
+	startScreen:"gigya-communication-screen"
+                 }
+        gigya.accounts.showScreenSet(params);
+    }
+
+        function GigyaLoadFunctions() {
+             showLiteRegistration();
+            //showRegistration();
+
+        };
+
+        var onGigyaServiceReady = function () {
+            GigyaLoadFunctions();
+        }
+
+
+    </script>
+
+
+    <div id="div"> </div>
+ <center>    <a  id="pemail" href="https://accounts.us1-st1.gigya.com/accounts.sendPreferencesCenterInvitation?apiKey=3_PpWKWQ-veYJICuy-WKR7IZitf-uYMezxEuKWMMRVaehrPa5CqUhkkjYtAk2vO5De&email="+email >Edit my preferences</a></center>
+   
+ <div id="full" hidden=true >
+<a onclick="showProfile()" href="javascript:void(0);">Show profile</a>
+<a onclick="showCommunication()" href="javascript:void(0);">Edit communication</a>
+<a onclick="showPrivacy()" href="javascript:void(0);">Edit privacy settings</a>
+</div>
+</body>
+
+</html>

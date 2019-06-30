@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title></title>
+ 
+     <script type="text/javascript" src="https://cdns.us1-st1.gigya.com/js/gigya.js?apiKey=3_oRTIvacLBxFnpYv0RZjieQllQz8s_VW7x_UoTzb_gU5hz47Dim5KrL-2swhojLn7">
+  
+    </script>
+</head>
+ 
+<body >
+<script type="text/javascript" >
+    function showPrivacy()
+    {
+      var params={
+    screenSet: "Default-ProfileUpdate", 
+    containerID:"div",
+	startScreen:"gigya-privacy-screen"
+                 }
+        gigya.accounts.showScreenSet(params);
+    }
+	
+	 function showCommunication()
+    {
+      var params={
+    screenSet: "Default-ProfileUpdate", 
+    containerID:"div",
+	startScreen:"gigya-communication-screen"
+                 }
+        gigya.accounts.showScreenSet(params);
+    }
+	
+	function GigyaLoadFunctions() {
+   // showPrivacy();
+	// showCommunication();
+    };
+	
+	var onGigyaServiceReady = function() {
+    GigyaLoadFunctions();
+}
+ 
+     
+</script>
+ 
+
+<a onclick="showCommunication()" href="javascript:void(0);">Edit communication</a>
+<a onclick="showPrivacy()" href="javascript:void(0);">Edit privacy settings</a>
+<div id="div"> </div> 
+
+
+</body>
+</html>
