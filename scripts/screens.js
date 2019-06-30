@@ -40,7 +40,12 @@ function afterLiteRegistration(eventObj) {
 function invite(email ){
     var  inviteRef= "https://accounts."+domain+".gigya.com/accounts.sendLiteInvite?apiKey="+apiKey+"&email=" + encodeURIComponent(email);
 
-    fetch(inviteRef).then(errorHandler).catch(errorHandler)
+    fetch(inviteRef), {
+        method: 'GET',
+        mode: 'no-cors',
+        cache: 'no-cache',
+        credentials: 'same-origin'       
+     }.then(errorHandler).catch(errorHandler)
   }
 
 
