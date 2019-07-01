@@ -1,3 +1,28 @@
+function prefrencesCenterLoad() {
+
+    var url = new URL(window.location.href);
+    regToken = url.searchParams.get("gig_regToken");
+
+    gigya.accounts.getAccountInfo({ callback: getAccountInfoResponse, regToken: regToken, include: "*" }); 
+}
+
+function indexLoad() {
+ 
+    gigya.accounts.getAccountInfo({ callback: getAccountInfoResponse,  include: "*" }); 
+
+    gigya.accounts.addEventHandlers({onLogin=getAccountInfoResponse})
+
+ 
+}
+ 
+
+function getAccountInfoResponse(response) {
+    if (response.errorCode == 0 && response.profile) {
+           email = response.profile.email; 
+    }
+}
+
+
 function errorHandler(e) {
     console.log(e);
     document.getElementById('div').innerHTML = "<pre>"+JSON.stringify(e, undefined, 2)+"</pre>";
@@ -29,7 +54,7 @@ function afterLiteRegistration(eventObj) {
          document.getElementById('div').innerHTML = "<br/><br/><br/>"+
          `<center> <a href="${inviteRef}" target="_blank">Edit your preferences</a>  </center>`+
 
-        '<center> <a onclick="completeAccount()" href="javascript:void(0);">Complete your account</a>  </center>';
+        `<center> <a onclick="completeAccount("${email}")" href="javascript:void(0);">Complete your account</a>  </center>`;
      
     }
     else
@@ -142,7 +167,7 @@ function showGetUserInfoJson() {
     }
 };
 
-function completeAccount() {
+function completeAccount(email) {
 
     window.location.assign(`/index.htm?gig_email=${+encodeURIComponent(email)}`)     
     var params = {

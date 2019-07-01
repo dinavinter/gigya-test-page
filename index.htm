@@ -69,6 +69,8 @@
     </style>
 
     <title>Dina @tester</title>
+    <script type="text/javascript" src="./scripts/loadGigya.js"> </script>
+    <script type="text/javascript" src="./scripts/screens.js"> </script>
 
     <script type="text/javascript">
     
@@ -80,17 +82,17 @@
     var active =document.getElementById(apiKey);
     if(active != null)
     active.className= "active";
+    indexLoad();
     };
 
     var onGigyaServiceReady = function () {
         GigyaLoadFunctions();
+     
                     }
         
     </script>
 
-    <script type="text/javascript" src="./scripts/loadGigya.js"> </script>
-    <script type="text/javascript" src="./scripts/screens.js"> </script>
-
+   
     
 </head>
 
