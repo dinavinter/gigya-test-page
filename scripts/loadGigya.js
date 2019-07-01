@@ -15,8 +15,6 @@ function loadGigya() {
     var gigurl = ("https://cdns." + domain + ".gigya.com/js/socialize.js?apikey=" + apiKey);
     document.write('<scr' + 'ipt type="text/javascript" src="' + gigurl + '"></scr' + 'ipt>');
 
-    var gigurl = ("http://cdn." + domain + ".gigya.com/js/socialize.js?apikey=" + apiKey);
-    document.write('<scr' + 'ipt type="text/javascript" src="' + gigurl + '"></scr' + 'ipt>');
 
  
 }
