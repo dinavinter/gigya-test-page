@@ -29,7 +29,7 @@ function afterLiteRegistration(eventObj) {
          document.getElementById('div').innerHTML = "<br/><br/><br/>"+
          `<center> <a href="${inviteRef}" target="_blank">Edit your preferences</a>  </center>`+
 
-        '<center> <a onclick="showRegistration()" href="javascript:void(0);">Complete your account</a>  </center>';
+        '<center> <a onclick="completeAccount()" href="javascript:void(0);">Complete your account</a>  </center>';
      
     }
     else
@@ -38,18 +38,22 @@ function afterLiteRegistration(eventObj) {
     }
 } 
 
-function invite(email ){
+// function invite(email ){
 
-    fetch(inviteRef), {
-        method: 'GET',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        credentials: 'same-origin'       
-     }.then(errorHandler).catch(errorHandler)
-  }
+//     fetch(inviteRef), {
+//         method: 'GET',
+//         mode: 'no-cors',
+//         cache: 'no-cache',
+//         credentials: 'same-origin'       
+//      }.then(errorHandler).catch(errorHandler)
+//   }
 
 
 function showGetAccountInfoResponse(response) {
+    if(response.errorCode == 0 && response.profile)
+    {
+         email = response.profile.email; 
+    }
     document.getElementById('div').innerHTML = "<pre>"+JSON.stringify(response, undefined, 2)+"</pre>";
  }
 
@@ -137,6 +141,19 @@ function showGetUserInfoJson() {
 
     }
 };
+
+function completeAccount() {
+
+    window.location.assign(`/index.htm?gig_email=${+encodeURIComponent(email)}`)     
+    var params = {
+        screenSet: "Default-RegistrationLogin",
+        containerID: "div",
+        startScreen: "gigya-register-screen",
+        onAfterSubmit: showResponse
+
+    }
+    gigya.accounts.showScreenSet(params);
+}
  
 function showRegistration() {
     var params = {
