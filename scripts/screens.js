@@ -167,6 +167,11 @@ function showGetUserInfoJson() {
     }
 };
 
+function completeAccount() {
+
+    completeAccount(email);
+}
+
 function completeAccount(email) {
 
     window.location.assign(`/index.htm?gig_email=${+encodeURIComponent(email)}`)     
