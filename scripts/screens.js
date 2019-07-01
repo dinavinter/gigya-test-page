@@ -48,13 +48,13 @@ gigya.comments.showCommentsUI(params);
   
 function afterLiteRegistration(eventObj) {
     if (eventObj.response.errorCode == 0) {
-        var email = eventObj.profile.email;
+        email = eventObj.profile.email;
         var  inviteRef= "https://accounts."+domain+".gigya.com/accounts.sendLiteInvite?apiKey="+apiKey+"&email=" + encodeURIComponent(email);
 
          document.getElementById('div').innerHTML = "<br/><br/><br/>"+
          `<center> <a href="${inviteRef}" target="_blank">Edit your preferences</a>  </center>`+
 
-        `<center> <a onclick="completeAccount("${email}")" href="javascript:void(0);">Complete your account</a>  </center>`;
+        `<center> <a onclick="completeAccount()" href="javascript:void(0);">Complete your account</a>  </center>`;
      
     }
     else
@@ -167,12 +167,9 @@ function showGetUserInfoJson() {
     }
 };
 
-function completeAccount() {
+ 
 
-    completeAccount(email);
-}
-
-function completeAccount(email) {
+function completeAccount( ) {
 
     window.location.assign(`/index.htm?gig_email=${+encodeURIComponent(email)}`)     
     var params = {
