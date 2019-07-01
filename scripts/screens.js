@@ -10,7 +10,7 @@ function indexLoad() {
  
     gigya.accounts.getAccountInfo({ callback: getAccountInfoResponse,  include: "*" }); 
 
-    gigya.accounts.addEventHandlers({onLogin=getAccountInfoResponse})
+    gigya.accounts.addEventHandlers({onLogin:getAccountInfoResponse})
 
  
 }
