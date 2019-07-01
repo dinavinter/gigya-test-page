@@ -109,7 +109,7 @@ function showProfile() {
 }
  
 function showAccountJson() { 
-    regToken = url.searchParams.get("gig_regToken");
+    regToken = window.url.searchParams.get("gig_regToken");
      if(regToken){
 
     gigya.accounts.getAccountInfo({ callback:showGetAccountInfoResponse, regToken: regToken, include: "all" });
@@ -124,7 +124,7 @@ function showAccountJson() {
 
 function showGetUserInfoJson() { 
 
-    regToken = url.searchParams.get("gig_regToken");
+    regToken = window.url.searchParams.get("gig_regToken");
     if(regToken){
     gigya.socialize.getUserInfo({ callback:showGetAccountInfoResponse, regToken })
     }
