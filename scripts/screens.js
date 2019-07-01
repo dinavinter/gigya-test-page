@@ -171,7 +171,7 @@ function showGetUserInfoJson() {
 
 function completeAccount( ) {
 
-    window.location.assign(`/gigya-test-page/index.htm?gig_email=${encodeURIComponent(email)}`)     
+    window.location.assign(`/gigya-test-page/index.htm?gig_email=${email}`)     
     var params = {
         screenSet: "Default-RegistrationLogin",
         containerID: "div",
