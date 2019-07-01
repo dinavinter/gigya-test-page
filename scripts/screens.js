@@ -109,7 +109,9 @@ function showProfile() {
 }
  
 function showAccountJson() { 
-    regToken = window.url.searchParams.get("gig_regToken");
+
+    var url = new URL(document.location);
+    var regToken = url.searchParams.get("gig_regToken");
      if(regToken){
 
     gigya.accounts.getAccountInfo({ callback:showGetAccountInfoResponse, regToken: regToken, include: "all" });
@@ -124,8 +126,10 @@ function showAccountJson() {
 
 function showGetUserInfoJson() { 
 
-    regToken = window.url.searchParams.get("gig_regToken");
-    if(regToken){
+    var url = new URL(document.location);
+    var regToken = url.searchParams.get("gig_regToken");
+    
+     if(regToken){
     gigya.socialize.getUserInfo({ callback:showGetAccountInfoResponse, regToken })
     }
     else{
