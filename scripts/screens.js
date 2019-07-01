@@ -171,7 +171,7 @@ function showGetUserInfoJson() {
 
 function completeAccount( ) {
 
-    window.location.assign(`/index.htm?gig_email=${+encodeURIComponent(email)}`)     
+    window.location.assign(`../index.htm?gig_email=${+encodeURIComponent(email)}`)     
     var params = {
         screenSet: "Default-RegistrationLogin",
         containerID: "div",
