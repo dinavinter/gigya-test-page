@@ -12,16 +12,16 @@ function loadGigya() {
         domain = domainParam
     }
 
-    if(domain == typeof(undefined))
+    if(!domain)
     {
         domain ="us1";
     }
  
-    if(apiKey == typeof(undefined))
+    if(!apiKey)
     {
         apiKey ="3_oRTIvacLBxFnpYv0RZjieQllQz8s_VW7x_UoTzb_gU5hz47Dim5KrL-2swhojLn7";
     }
-    
+
     var gigurl = ("https://cdns." + domain + ".gigya.com/js/socialize.js?apikey=" + apiKey);
     document.write('<scr' + 'ipt type="text/javascript" src="' + gigurl + '"></scr' + 'ipt>');
 
