@@ -71,6 +71,7 @@
     <title>Dina @tester</title>
     <script type="text/javascript" src="./scripts/loadGigya.js"> </script>
     <script type="text/javascript" src="./scripts/screens.js"> </script>
+    <script type="text/javascript" src="./scripts/showScreen.js"> </script>
 
     <script type="text/javascript">
     
@@ -83,7 +84,9 @@
     if(active != null)
     active.className= "active";
     indexLoad();
+    showScreen();
     };
+       
 
     var onGigyaServiceReady = function () {
         GigyaLoadFunctions();
