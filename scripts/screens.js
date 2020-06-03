@@ -38,7 +38,7 @@ function showComment() {
 	version: 2,
 	containerID: 'div',
 	cid:'',
-	enabledShareProviders: 'facebook,twitter,yahoo,linkedin'
+	enabledShareProviders: 'facebook,twitter,yahoo,linkedin,vkontakte'
 }
 gigya.comments.showCommentsUI(params);
 }
