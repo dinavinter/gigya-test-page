@@ -1,3 +1,10 @@
+var globalParams;
+function Get_global_params() {
+    txt = (document.getElementById("textariaForGlobalParams").value);
+    globalParams = JSON.parse(txt);
+ //   Object.keys(globalParams).forEach(x => console.log(globalParams[x]));
+    console.log(globalParams);
+}
 function prefrencesCenterLoad() {
 
     var url = new URL(window.location.href);
@@ -38,9 +45,12 @@ function showComment() {
 	version: 2,
 	containerID: 'div',
 	cid:'',
-	enabledShareProviders: 'facebook,twitter,yahoo,linkedin,vkontakte'
-}
-gigya.comments.showCommentsUI(params);
+     enabledShareProviders: 'facebook,twitter,yahoo,linkedin,vkontakte'
+    }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
+    gigya.comments.showCommentsUI(params);
+    console.log(params);
+
 }
 
 
@@ -105,6 +115,7 @@ function showLiteRegistration( ) {
         onAfterSubmit: afterLiteRegistration,
         onError: errorHandler
     }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
     gigya.accounts.showScreenSet(params);
 }
 
@@ -115,6 +126,7 @@ function showPrivacy() {
         containerID: "div",
         startScreen: "gigya-privacy-screen"
     }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
     gigya.accounts.showScreenSet(params);
 }
 
@@ -124,6 +136,7 @@ function showCommunication() {
         containerID: "div",
         startScreen: "gigya-communication-screen"
     }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
     gigya.accounts.showScreenSet(params);
 }
 
@@ -134,6 +147,7 @@ function showProfile() {
         startScreen: "gigya-update-profile-screen",
         conflictHandling: "saveProfileAndFail"
     }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
     gigya.accounts.showScreenSet(params);
 }
  
@@ -179,6 +193,7 @@ function completeAccount( ) {
         onAfterSubmit: showResponse
 
     }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
     gigya.accounts.showScreenSet(params);
 }
  
@@ -190,6 +205,7 @@ function showRegistration() {
         onAfterSubmit: showResponse
 
     }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
     gigya.accounts.showScreenSet(params);
 }
 
@@ -201,6 +217,7 @@ function showLogin() {
         onAfterSubmit: showResponse
 
     }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
     gigya.accounts.showScreenSet(params);
 }
 
