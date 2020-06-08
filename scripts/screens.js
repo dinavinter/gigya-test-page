@@ -47,7 +47,7 @@ function showComment() {
 	cid:'',
      enabledShareProviders: 'facebook,twitter,yahoo,linkedin,vkontakte'
     }
-    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x] );
     gigya.comments.showCommentsUI(params);
     console.log(params);
 
@@ -193,7 +193,7 @@ function completeAccount( ) {
         onAfterSubmit: showResponse
 
     }
-    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x] );
     gigya.accounts.showScreenSet(params);
 }
  
@@ -205,7 +205,7 @@ function showRegistration() {
         onAfterSubmit: showResponse
 
     }
-    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x] );
     gigya.accounts.showScreenSet(params);
 }
 
@@ -217,7 +217,7 @@ function showLogin() {
         onAfterSubmit: showResponse
 
     }
-    Object.keys(globalParams).forEach(x => params[x] = globalParams[x]);
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x] );
     gigya.accounts.showScreenSet(params);
 }
 
