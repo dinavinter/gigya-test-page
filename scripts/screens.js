@@ -1,4 +1,4 @@
-function prefrencesCenterLoad() {
+ function prefrencesCenterLoad() {
 
     var url = new URL(window.location.href);
     regToken = url.searchParams.get("gig_regToken");
@@ -193,7 +193,19 @@ function showRegistration() {
     gigya.accounts.showScreenSet(params);
 }
 
- 
+function showProgression() {
+    var params = {
+        screenSet: "Default-RegistrationLogin",
+        containerID: "div",
+        startScreen: "gigya-lite-account-progression-screen",
+        onAfterSubmit: showResponse
+
+    }
+    Object.keys(globalParams).forEach(x => params[x] = globalParams[x] );
+    gigya.accounts.showScreenSet(params);
+}
+
+
 function showLogin() {
     var params = {
         screenSet: "Default-RegistrationLogin",

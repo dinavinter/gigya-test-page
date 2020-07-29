@@ -4,7 +4,7 @@ function showScreen() {
     var screensetParam = url.searchParams.get("screen-set");
     var screenIdParam = url.searchParams.get("screen-id");
  
-    if (typeof(screensetParam) === 'undefined' || typeof(screenIdParam) === 'undefined' ) {
+    if (typeof(screensetParam) === 'undefined' || typeof(screenIdParam) === 'undefined'  ||  screensetParam === ''   || screensetParam === null ) {
          return;
     }
 
